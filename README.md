@@ -66,6 +66,7 @@ Browserify can alias files or modules to a certain name. For example, `require(â
 Type: `[String]`
 
 Specifies files to be required in the browserify bundle. String filenames are parsed into their full paths with `path.resolve`.
+Globbing patterns are supported.
 
 #### ignore
 Type: `[String]`

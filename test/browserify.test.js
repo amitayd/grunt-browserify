@@ -89,9 +89,12 @@ describe('grunt-browserify-runner', function () {
     it('requires each item in the array', function (done) {
       var b = stubBrowserify('require');
       var requireList = ['./package.json'];
+      var files = _.map(requireList, function (file) {
+        return path.resolve(file);
+      });      
       var runner = createRunner(b);
       runner.run([], dest, {require: requireList}, function () {
-        assert.ok(b().require.calledWith(requireList[0]));
+        assert.ok(b().require.calledWith(files[0]));
         done();
       });
     });
